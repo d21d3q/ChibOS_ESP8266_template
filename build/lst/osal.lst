@@ -1,0 +1,113 @@
+ARM GAS  /tmp/ccwmgQWS.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"osal.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.section	.gnu.lto_.profile.5b245e057d648a9e,"",%progbits
+  15 0000 789C6365 		.ascii	"x\234ce`b`d\000\002\000\000I\000\011"
+  15      60626064 
+  15      00020000 
+  15      490009
+  16              		.text
+  17              		.section	.gnu.lto_.icf.5b245e057d648a9e,"",%progbits
+  18 0000 789C6365 		.ascii	"x\234ce`\002Bd\000\000\000\250\000\012"
+  18      60024264 
+  18      000000A8 
+  18      000A
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.5b245e057d648a9e,"",%progbits
+  21 0000 789C6365 		.ascii	"x\234ce`\002Bd\000\000\000\250\000\012"
+  21      60024264 
+  21      000000A8 
+  21      000A
+  22              		.text
+  23              		.section	.gnu.lto_.inline.5b245e057d648a9e,"",%progbits
+  24 0000 789C6365 		.ascii	"x\234ce`\002Bd\000\000\000\250\000\012"
+  24      60024264 
+  24      000000A8 
+  24      000A
+  25              		.text
+  26              		.section	.gnu.lto_.pureconst.5b245e057d648a9e,"",%progbits
+  27 0000 789C6365 		.ascii	"x\234ce`b`d\000\002\000\000I\000\011"
+  27      60626064 
+  27      00020000 
+  27      490009
+  28              		.text
+  29              		.section	.gnu.lto_.symbol_nodes.5b245e057d648a9e,"",%progbits
+  30 0000 789C6365 		.ascii	"x\234ce`\002B\020\000\000\000X\000\012"
+  30      60024210 
+  30      00000058 
+  30      000A
+  31              		.text
+  32              		.section	.gnu.lto_.refs.5b245e057d648a9e,"",%progbits
+  33 0000 789C6365 		.ascii	"x\234ce`b`d\000\002\000\000I\000\011"
+  33      60626064 
+  33      00020000 
+  33      490009
+  34              		.text
+  35              		.section	.gnu.lto_.decls.5b245e057d648a9e,"",%progbits
+  36 0000 789C6365 		.ascii	"x\234ce`b\000\001F V\001\342\377@\000b\257e \000\000"
+ARM GAS  /tmp/ccwmgQWS.s 			page 2
+
+
+  36      60620001 
+  36      46205601 
+  36      E2FF4000 
+  36      62AF6520 
+  37 0016 BC1D04D7 		.ascii	"\274\035\004\327"
+  38              		.text
+  39              		.section	.gnu.lto_.symtab.5b245e057d648a9e,"",%progbits
+  40              		.text
+  41              		.section	.gnu.lto_.opts,"",%progbits
+  42 0000 272D666D 		.ascii	"'-fmath-errno' '-fsigned-zeros' '-ftrapping-math' '"
+  42      6174682D 
+  42      6572726E 
+  42      6F272027 
+  42      2D667369 
+  43 0033 2D666E6F 		.ascii	"-fno-trapv' '-fno-openmp' '-fno-openacc' '-mcpu=cor"
+  43      2D747261 
+  43      70762720 
+  43      272D666E 
+  43      6F2D6F70 
+  44 0066 7465782D 		.ascii	"tex-m4' '-mno-thumb-interwork' '-mthumb' '-ggdb' '-"
+  44      6D342720 
+  44      272D6D6E 
+  44      6F2D7468 
+  44      756D622D 
+  45 0099 4F322720 		.ascii	"O2' '-fomit-frame-pointer' '-falign-functions=16' '"
+  45      272D666F 
+  45      6D69742D 
+  45      6672616D 
+  45      652D706F 
+  46 00cc 2D666675 		.ascii	"-ffunction-sections' '-fdata-sections' '-fno-common"
+  46      6E637469 
+  46      6F6E2D73 
+  46      65637469 
+  46      6F6E7327 
+  47 00ff 2720272D 		.ascii	"' '-flto'\000"
+  47      666C746F 
+  47      2700
+  48              		.text
+  49              		.comm	__gnu_lto_v1,1,1
+  50              		.comm	__gnu_lto_slim,1,1
+  51              		.ident	"GCC: (GNU Tools for ARM Embedded Processors 6-2017-q2-update) 6.3.1 20170215 (release) [AR
+ARM GAS  /tmp/ccwmgQWS.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 osal.c
+                            *COM*:0000000000000001 __gnu_lto_v1
+                            *COM*:0000000000000001 __gnu_lto_slim
+
+NO UNDEFINED SYMBOLS
