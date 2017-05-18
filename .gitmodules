@@ -1,0 +1,3 @@
+[submodule "lib/ESP8266_AT_Commands_parser"]
+	path = lib/ESP8266_AT_Commands_parser
+	url = https://github.com/d21d3q/ESP8266_AT_Commands_parser.git
