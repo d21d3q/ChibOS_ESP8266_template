@@ -18,7 +18,6 @@ ESP_APConfig_t myApConf = { "ChibiWifi", "supersecret", ESP_Ecn_WPA2_PSK, 3, 1, 
 
 static THD_WORKING_AREA(waEspUpdate, 512);
 static THD_WORKING_AREA(waEspMain, 512);
-//static THD_WORKING_AREA(waEspTimeUpdate, 128);
 
 static virtual_timer_t EspTimeUpdateTimer;
 
@@ -67,7 +66,7 @@ static THD_FUNCTION(EspMainThread, arg) {
 
     /* Init ESP library with 115200 bauds */
     if ((espRes = ESP_Init(&ESP, 115200, ESP_Callback)) == espOK) {
-        chprintf((BaseSequentialStream *)&SD2, "ESP module init successfully!\r\n");
+        chprintf((BaseSequentialStream *)&SD2, "ESP module initialized successfully!\r\n");
     } else {
         chprintf((BaseSequentialStream*)&SD2, "ESP Init error. Status: %d\r\n", espRes);
     }
@@ -102,7 +101,10 @@ static THD_FUNCTION(EspMainThread, arg) {
 
     /* Try to connect to wifi network in blocking mode */
     if ((espRes = ESP_STA_GetIP(&ESP, hisSTAIP, 1)) == espOK) {
-        chprintf((BaseSequentialStream*)&SD2, "Succesfully set ip\r\n");
+        chprintf((BaseSequentialStream*)&SD2, "Succesfully obtained STA ip: %d.%d.%d.%d\r\n", (uint32_t)hisSTAIP[0],
+																							  (uint32_t)hisSTAIP[1],
+																							  (uint32_t)hisSTAIP[2],
+																							  (uint32_t)hisSTAIP[3]);
     } else {
         chprintf((BaseSequentialStream*)&SD2, "Problems with setting ip. Status: %d\r\n", espRes);
     }
@@ -113,9 +115,7 @@ static THD_FUNCTION(EspMainThread, arg) {
     } else {
         chprintf((BaseSequentialStream*)&SD2, "Problems trying to enable server mode: %d\r\n", espRes);
     }
-//    EspUpdateThreadHandle = osThreadCreate(osThread(EspUpdateThread), NULL);
     while (1) {
-//    	osDelay(1);
         ESP_ProcessCallbacks(&ESP);         /* Process all callbacks */
         chThdYield();
     }
@@ -157,7 +157,6 @@ int ESP_Callback(ESP_Event_t evt, ESP_EventParams_t* params) {
                 if (strstr((char *)data, "/favicon")) { /* When browser requests favicon image, ignore it! */
                     ESP_CONN_Close(&ESP, conn, 0);      /* Close connection directly on favicon request */
                 } else {
-//                	respSize = sprintf(respBuf, responseTemplate, (uint32_t)chVTGetSystemTime());
                 	respSize = chsnprintf((char*)respBuf, RESPT_BUF_SIZE, (char*)responseTemplate, (uint32_t)chVTGetSystemTime());
                     espRes = ESP_CONN_Send(&ESP, conn, respBuf, respSize, &bw, 0); /* Send data on other requests */
                 }
@@ -180,16 +179,6 @@ int ESP_Callback(ESP_Event_t evt, ESP_EventParams_t* params) {
     return 0;
 }
 
-//static THD_FUNCTION(EspTimeUpdateThread, arg) {
-//	(void)arg;
-//	chRegSetThreadName("esp updateTime");
-//
-//	while(1){
-//		ESP_UpdateTime(&ESP, 1);
-//		chThdSleepMilliseconds(1);
-//	}
-//}
-
 static void EspUpdateTime_cb(void *arg) {
   (void)arg;
 //  LED_toggle();
@@ -207,16 +196,3 @@ void StartEspThreads(void){
 	chVTObjectInit(&EspTimeUpdateTimer);
 	chVTSet(&EspTimeUpdateTimer, MS2ST(1), EspUpdateTime_cb, NULL);
 }
-
-///* StartDummyThread function */
-//void StartDummyThread(void const * argument)
-//{
-//  /* USER CODE BEGIN StartDummyThread */
-//  /* Infinite loop */
-//  for(;;)
-//  {
-////	  HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
-//    osDelay(400);
-//  }
-//  /* USER CODE END StartDummyThread */
-//}
