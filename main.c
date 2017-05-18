@@ -16,7 +16,6 @@
 
 #include "ch.h"
 #include "hal.h"
-#include "ch_test.h"
 
 extern void StartEspThreads(void);
 
@@ -60,15 +59,6 @@ int main(void) {
   palSetPadMode(GPIOA, 2, PAL_MODE_ALTERNATE(7));
   palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(7));
 
-//	UARTConfig uartConf;
-//	memset(&uartConf, 0,  sizeof(uartConf));
-//	uartConf.speed = 115200;
-//	//	uartConf.rxchar_cb = &espReceiveCallback;
-//	//	uartConf.cr1 |=
-//	uartStart(&UARTD3, &uartConf);
-//	  palSetPadMode(GPIOA, 2, PAL_MODE_ALTERNATE(7));
-//	  palSetPadMode(GPIOA, 3, PAL_MODE_ALTERNATE(7));
-
   /*
    * Creates the example thread.
    */
@@ -79,8 +69,6 @@ int main(void) {
    * sleeping in a loop and check the button state.
    */
   while (true) {
-//    if (palReadPad(GPIOA, GPIOA_BUTTON))
-//      test_execute((BaseSequentialStream *)&SD2);
     chThdSleepMilliseconds(TIME_INFINITE);
   }
 }

@@ -16,8 +16,8 @@ uint8_t mySTAGWMSK[] = {192, 168, 1, 1, 255, 255, 255, 0};
 
 ESP_APConfig_t myApConf = { "ChibiWifi", "supersecret", ESP_Ecn_WPA2_PSK, 3, 1, 0};
 
-static THD_WORKING_AREA(waEspUpdate, 1024);
-static THD_WORKING_AREA(waEspMain, 1024);
+static THD_WORKING_AREA(waEspUpdate, 512);
+static THD_WORKING_AREA(waEspMain, 512);
 //static THD_WORKING_AREA(waEspTimeUpdate, 128);
 
 static virtual_timer_t EspTimeUpdateTimer;
